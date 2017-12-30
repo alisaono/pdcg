@@ -42,8 +42,8 @@ h1 {
 }
 .trick {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 210px;
+  height: 210px;
   margin: 10px;
   border: solid #bfc7ca 1px;
 }
@@ -57,21 +57,22 @@ h1 {
   left: 0;
   bottom: 0;
   right: 0;
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  opacity: 0.2;
 }
 .trick-text {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 0;
   left: 20;
   text-align: left;
 }
-.trick:hover .trick-overlay {
+/* .trick:hover .trick-overlay {
   background-color: #273c42;
 }
 .trick:hover .trick-text {
   display: inline;
-}
+} */
 .trick-arrow {
   width: 30px;
 }

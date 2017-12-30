@@ -30,6 +30,8 @@ const nextTricks = {
 
 const allTricks = Object.keys(nextTricks)
 
+const initNumTricks = 3
+
 function appendTrick(trick) {
   let $newdiv = $("<div class='trick'></div>" )
   $newdiv.append("<img src='"+trickToImg[trick]+"'/>")
@@ -49,6 +51,9 @@ function renderTricks(trickLists) {
     appendArrow()
     appendTrick(trickLists[i])
   }
+  if ($('.show-text .onhover').hasClass('selected')) {
+    $('.trick').addClass('trick-onhover')
+  }
 }
 
 function generateCombo(numTricks) {
@@ -67,11 +72,35 @@ function generateCombo(numTricks) {
 }
 
 $(document).ready(function(){
-  let combo = generateCombo(4)
+  let combo = generateCombo(initNumTricks)
   renderTricks(combo)
 
+  $('.num-tricks .minus').on('click',function(){
+    let currNum = parseInt($('.num-tricks .input').text())
+    let newNum = Math.max(1, currNum - 1)
+    $('.num-tricks .input').text(newNum.toString())
+  })
+  $('.num-tricks .plus').on('click',function(){
+    let currNum = parseInt($('.num-tricks .input').text())
+    let newNum = Math.min(4, currNum + 1)
+    $('.num-tricks .input').text(newNum.toString())
+  })
+
+  $('.show-text .always .check-empty').on('click',function(){
+    $('.show-text .always').removeClass('unselected').addClass('selected')
+    $('.show-text .onhover').removeClass('selected').addClass('unselected')
+    $('.trick').removeClass('trick-onhover')
+  })
+  $('.show-text .onhover .check-empty').on('click',function(){
+    $('.show-text .always').removeClass('selected').addClass('unselected')
+    $('.show-text .onhover').removeClass('unselected').addClass('selected')
+    $('.trick').addClass('trick-onhover')
+  })
+
   $('.regen').on('click',function(){
-    let newCombo = generateCombo(4)
+    let numTricks = parseInt($('.num-tricks .input').text())
+    console.log(numTricks)
+    let newCombo = generateCombo(numTricks)
     renderTricks(newCombo)
   })
 })

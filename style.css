@@ -20,11 +20,35 @@ h1 {
 .header {
   width: 100%;
   background-color: #f55e61;
-  padding: 0 0 5px 0;
 }
-.regen:hover {
+.header h1 {
+  display: inline-block;
+  border-bottom: solid white 2px;
+}
+.pane {
+  width: 100%;
+  background-color: #f55e61;
+  padding: 0 0 15px 0;
+}
+.pane-option {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+.hover-button:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.check-empty:hover {
+  cursor: pointer;
+}
+.selected .check-empty {
+  display: none;
+}
+.unselected .check {
+  display: none;
+}
+.regen-option {
+  margin-top: 10px;
 }
 .window {
   width: 100%;
@@ -57,22 +81,26 @@ h1 {
   left: 0;
   bottom: 0;
   right: 0;
-  /* opacity: 0.5; */
   opacity: 0.2;
 }
 .trick-text {
-  /* display: none; */
   position: absolute;
   top: 0;
   left: 20;
   text-align: left;
 }
-/* .trick:hover .trick-overlay {
+.trick-onhover .trick-overlay {
+  opacity: 0.5;
+}
+.trick-onhover .trick-text {
+  display: none;
+}
+.trick-onhover:hover .trick-overlay {
   background-color: #273c42;
 }
-.trick:hover .trick-text {
+.trick-onhover:hover .trick-text {
   display: inline;
-} */
+}
 .trick-arrow {
   width: 30px;
 }
